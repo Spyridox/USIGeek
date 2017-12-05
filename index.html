@@ -402,7 +402,7 @@
           [].forEach.call(document.querySelectorAll('.language-switch'), function(el) {
             el.setAttribute('active', false);
           });
-          document.querySelectorAll(`[data-lang=${language}]`)[0].setAttribute("active", true);
+          document.querySelector(`[data-lang=${language}]`).setAttribute("active", true);
 
           // hide all languages except current one
           [].forEach.call(document.querySelectorAll('[lang]'), function(el) {
