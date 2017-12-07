@@ -5,9 +5,10 @@
 * {
   box-sizing: border-box;
   --background-light: #F6F6F6;
-  --background-dark: #424242;
+  --background-dark: #0D0D0D;
   --card-background-color: #FAFAFA;
   --accent-color: #FF9934;
+  --accent-color-hover: #E67300;
 
   --light-text: #F4F4F4;
   --dark-text: #0A0A0A;
@@ -17,8 +18,8 @@ body {
   font-weight: 400;
   margin: 0;
   padding: 0;
-  color: var(--dark-text);
-  background-color: var(--background-light);
+  color: var(--light-text);
+  background-color: var(--background-dark);
 }
 [hidden] {
   display: none !important;
@@ -29,7 +30,7 @@ body {
 /* ########################################################################## */
 /* LINKS */
 a:link, a:hover, a:active, a:visited {
-    color: var(--background-light);
+    color: var(--background-dark);
     background-color: transparent;
     text-decoration: none;
 }
@@ -48,8 +49,8 @@ div.nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  background-color: var(--accent-color);
   font-size: 35px;
+  background-color: var(--accent-color);
 }
 div.nav ul:after {
   content: "";
@@ -63,14 +64,14 @@ div.nav ul li {
   position: relative;
 }
 div.nav ul li a {
-  color: var(--light-text);
   text-align: center;
   padding: 20px 10px 10px 10px;
   display: block;
   text-decoration: none;
+  color: var(--light-text);
 }
 div.nav ul li a:hover {
-    background-color: #E67300;
+    background-color: var(--accent-color-hover);
 }
 div.nav ul li a.active {
     /*background-color: #A6A6A6;*/
@@ -148,12 +149,11 @@ header.title h1 b:nth-child(1) {
   float: left;
   padding: 10px;
   cursor: pointer;
-  color: var(--dark-text);
+  color: var(--light-text);
   background-color: transparent;
 }
 .language-switch[active="true"] {
   display: block;
-  color: var(--light-text);
   background-color: var(--accent-color);
 }
 
@@ -228,10 +228,10 @@ section.page#events article.event {
   margin: 60px 20%;
   padding: 16px;
   border-radius: 4px;
-  color: var(--dark-text);
-  background-color: var(--card-background-color);
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  color: var(--dark-text);
+  background-color: var(--background-light);
 }
 section.page#events article.event:hover {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
