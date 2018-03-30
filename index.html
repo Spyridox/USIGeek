@@ -350,6 +350,9 @@
 
     </footer>
 
+    <button onclick="loadClient()">load</button>
+    <button onclick="execute()">execute</button>
+
     <script src="https://apis.google.com/js/api.js"></script>
     <script type="text/javascript">
 
@@ -360,41 +363,24 @@
 
       /* Load events from Google Calendar API V3 */
       function loadEvents() {
-        function loadClient(done) {
-          gapi.client.setApiKey('AIzaSyBJ5hPRS8uTJGfbLG4dKP2LIX-sBQ7rLlM');
-          return gapi.client.load('https://content.googleapis.com/discovery/v1/apis/calendar/v3/rest')
-          .then(
-            function() {
-              console.log("GAPI client loaded for API");
-              done();
-            },
-            function(err) {
-              console.error("Error loading GAPI client for API", err);
-            }
-          );
+        function loadClient() {
+          gapi.client.setApiKey(YOUR_API_KEY);
+          return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/calendar/v3/rest")
+              .then(function() { console.log("GAPI client loaded for API"); },
+                    function(err) { console.error("Error loading GAPI client for API", err); });
         }
-
         // Make sure the client is loaded before calling this method.
         function execute() {
           return gapi.client.calendar.events.list({
-            "calendarId": "cr4qcnc7kj6i8b80m2afv2q298@group.calendar.google.com",
-            "prettyPrint": "true"
+            "calendarId": "cr4qcnc7kj6i8b80m2afv2q298@group.calendar.google.com"
           })
-          .then(
-            function(response) {
-              // Handle the results here (response.result has the parsed body).
-              console.log("Response", response);
-              alert(response);
-            },
-            function(err) {
-              console.error("Execute error", err);
-            }
-          );
+              .then(function(response) {
+                      // Handle the results here (response.result has the parsed body).
+                      console.log("Response", response);
+                    },
+                    function(err) { console.error("Execute error", err); });
         }
-
-        console.log("Loading Google API client");
         gapi.load("client");
-        loadClient(execute);
       }
 
       /* Load language from localstorage if present */
